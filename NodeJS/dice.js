@@ -15,6 +15,18 @@ bot.onText(/\/roll/g, (msg,match)=>{
       bot.sendMessage(chatId, rollnumber);
     }
 });
+
+bot.onText(/\/roll20/g, (msg,match)=>{
+    var chatId = msg.chat.id;
+    var message = msg.text.toString().toLowerCase();
+    var username = msg.chat.first_name;
+    var noOfMsg = msg.message_id;
+  
+    var rollnumber = dice(20).toString();
+    if (message.includes('roll')) {
+      bot.sendMessage(chatId, rollnumber);
+    }
+});
 function dice(sizes){
     return Math.floor(Math.random() * sizes) + 1;   
 } 
