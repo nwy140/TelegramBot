@@ -8,7 +8,13 @@ bot.on('message', msg => {
   var username = msg.chat.first_name;
   var noOfMsg = msg.message_id;
 
-  if (message.includes('happy birthday')) {
-    bot.sendMessage(chatId, 'thank you! '+ username+  "\n A birthday is the anniversary of the birth of a person, or figuratively of an institution. Birthdays of people are celebrated in numerous cultures, often with birthday gifts, birthday cards, a birthday party, or a rite of passage.");
+  var rollnumber = dice(6).toString();
+  if (message.includes('roll')) {
+    bot.sendMessage(chatId, rollnumber);
   }
 });
+
+function dice(sizes){
+    return Math.floor(Math.random() * sizes) + 1;   
+} 
+
