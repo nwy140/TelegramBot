@@ -9,8 +9,15 @@ bot.onText(/\/roll/g, (msg,match)=>{
     var message = msg.text.toString().toLowerCase();
     var username = msg.chat.first_name;
     var noOfMsg = msg.message_id;
-  
-    var rollnumber = dice(6).toString();
+
+    var split = match.input.split(' ');
+    var noOfSides = split[i];
+
+    if(noOfSides === undefined){
+        noOfSides='6';
+    }
+
+    var rollnumber = dice(noOfSides).toString();
     if (message.includes('roll')) {
       bot.sendMessage(chatId, rollnumber);
     }
