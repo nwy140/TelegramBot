@@ -14,6 +14,10 @@ bot.on('message', msg => {
   }
 });
 
+
+bot.onText(/\/roll/g, (msg,match)=>{
+
+});
 function dice(sizes){
     return Math.floor(Math.random() * sizes) + 1;   
 } 
